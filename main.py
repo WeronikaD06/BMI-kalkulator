@@ -52,7 +52,6 @@ def bmi_input():
     else:
         print("otyłość 3 stopnia")
     f.write(f"{str(format(bmi, '.2f'))}\n")
-
     f.close()
 
 def bmi_charts():
