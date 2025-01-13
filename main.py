@@ -38,7 +38,6 @@ def bmi_charts():
     names = []
     for x in a:
         values.append(float(x[0:-1]))
-
     for i in range(1, len(values)+1):
         names.append(int(i))
     plt.xticks(np.arange(min(names), max(names) + 1, 1.0))
