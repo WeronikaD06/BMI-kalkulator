@@ -44,6 +44,7 @@ def bmi_charts():
     plt.yticks(np.arange(0, 80, 5.0))
     plt.scatter(np.array(names) , np.array(values))
     plt.show()
+
     f.close()
 
 if __name__ == '__main__':
