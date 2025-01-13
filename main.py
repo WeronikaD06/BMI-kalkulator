@@ -1,4 +1,6 @@
 import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
 
 def main():
     print("Witaj! Czas obliczyć Twoje BMI!!!")
@@ -25,38 +27,26 @@ def bmi_text():
     # bmi text
     return 0
 
-
 def bmi_input():
-    f=open("dane.txt", 'a')
-    waga = int(input("Ile ważysz? (podaj w kilogramach): "))
-    wzrost = float(input("Ile masz wzrostu? (podaj w metrach)"))
-    bmi = waga / (wzrost ** 2)
-    print(f"Twoje BMI wynosi: {format(bmi, '.2f')}")
-    print("Twoja diagnoza: ")
-    if bmi <= 0:
-        print("Błąd. Sprawdź jeszcze raz!")
-    elif bmi > 0 and bmi < 16:
-        print("wygłodzenie")
-    elif bmi >= 16 and bmi < 17:
-        print("wychudzenie")
-    elif bmi >= 17 and bmi < 18.5:
-        print("niedowaga")
-    elif bmi >= 18.5 and bmi < 25:
-        print("pożądana masa ciała")
-    elif bmi >= 25 and bmi < 30:
-        print("nadwaga")
-    elif bmi >= 30 and bmi < 35:
-        print("otyłość 1 stopnia")
-    elif bmi >= 35 and bmi < 40:
-        print("otyłość 2 stopnia")
-    else:
-        print("otyłość 3 stopnia")
-    f.write(f"{str(format(bmi, '.2f'))}\n")
-    f.close()
+    # bmi input
+    return 0
 
 def bmi_charts():
-    #bmi charts
-    return 0
+    f = open('dane.txt', 'r')
+    a = f.readlines()
+    values = []
+    names = []
+    for x in a:
+        values.append(float(x[0:-1]))
+    f.close()
+    for i in range(1, len(values)+1):
+        names.append(int(i))
+    plt.xticks(np.arange(min(names), max(names) + 1, 1.0))
+    plt.yticks(np.arange(0, 80, 5.0))
+    plt.scatter(np.array(names) , np.array(values))
+    plt.show()
+
+    plt.show()
 
 if __name__ == '__main__':
     main()
