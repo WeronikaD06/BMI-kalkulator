@@ -38,13 +38,14 @@ def bmi_charts():
     names = []
     for x in a:
         values.append(float(x[0:-1]))
-    f.close()
+
     for i in range(1, len(values)+1):
         names.append(int(i))
     plt.xticks(np.arange(min(names), max(names) + 1, 1.0))
     plt.yticks(np.arange(0, 80, 5.0))
     plt.scatter(np.array(names) , np.array(values))
     plt.show()
+    f.close()
 
 if __name__ == '__main__':
     main()
