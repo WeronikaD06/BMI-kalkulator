@@ -1,3 +1,5 @@
+import pandas as pd
+
 def main():
     print("Witaj! Czas obliczyć Twoje BMI!!!")
     flag = True
@@ -20,10 +22,12 @@ Wybierz opcję:
             flag=False
 
 def bmi_text():
-    #bmi text
+    # bmi text
     return 0
 
+
 def bmi_input():
+    f=open("dane.txt", 'a')
     waga = int(input("Ile ważysz? (podaj w kilogramach): "))
     wzrost = float(input("Ile masz wzrostu? (podaj w metrach)"))
     bmi = waga / (wzrost ** 2)
@@ -47,6 +51,8 @@ def bmi_input():
         print("otyłość 2 stopnia")
     else:
         print("otyłość 3 stopnia")
+    f.write(f"{str(format(bmi, '.2f'))}\n")
+    f.close()
 
 def bmi_charts():
     #bmi charts
