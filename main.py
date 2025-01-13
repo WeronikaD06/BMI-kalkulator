@@ -46,7 +46,5 @@ def bmi_charts():
     plt.scatter(np.array(names) , np.array(values))
     plt.show()
 
-    plt.show()
-
 if __name__ == '__main__':
     main()
